@@ -1,9 +1,14 @@
-const Index = () => {
-  return (
-    <main className="w-full h-full flex-1 flex items-center justify-center bg-white">
-      {/* Blank canvas */}
-    </main>
-  )
-}
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default Index
+const Index = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/separacao', { replace: true });
+  }, [navigate]);
+
+  return null;
+};
+
+export default Index;
