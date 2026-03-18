@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 // @ts-expect-error - uidPlugin is a custom plugin
 import uidPlugin from "./vite-plugin-react-uid";
@@ -23,8 +23,15 @@ export default defineConfig(({ mode }) => ({
     "process.env.NODE_ENV": JSON.stringify(mode ?? process.env.NODE_ENV ?? "production"),
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+    alias: [
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, './src'),
+      },
+      {
+        find: /zod\/v4\/core/,
+        replacement: path.resolve(__dirname, 'node_modules', 'zod', 'v4', 'core'),
+      },
+    ],
   },
 }));
