@@ -1724,6 +1724,9 @@ section[aria-label='Notifications alt+T'] {
 .ease-linear{
   animation-timing-function: linear;
 }
+.running{
+  animation-play-state: running;
+}
 /* KEEP ALL THE ANIMATIONS CLASSES THAT ARE USED BELOW */
 @keyframes accordion-down {
     from {
